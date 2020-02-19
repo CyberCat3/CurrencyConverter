@@ -41,9 +41,13 @@ public class CurrencyConverter {
     
                 Currency target = Currency.getByName(secondPart);
     
-                System.out.println(" ->  " + source.convert(amount, target) + secondPart.trim() + "\n");
-            } catch (NullPointerException | ArrayIndexOutOfBoundsException e) {
-                System.err.println("Invalid Index.");
+                System.out.println(" ->  " + source.convert(amount, target) + secondPart.trim());
+            } catch (StringIndexOutOfBoundsException | ArrayIndexOutOfBoundsException e) {
+                System.err.println(" ->  Invalid Syntax.");
+            } catch (NullPointerException e) {
+            	System.err.println(" ->  Unkown Currency.");
+            } finally {
+            	System.out.println();
             }
 
         }
